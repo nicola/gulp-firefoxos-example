@@ -1,0 +1,17 @@
+{
+  "name": "FirefoxOS-Gulp",
+  "version": "0.0.0",
+  "description": "This is a privileged empty app template that provides you with a barebones structure for you to build your app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicola Greco <me@nicola.io> (http://nicolagreco.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-zip": "^2.0.1",
+    "moz-deploy-b2g": "0.0.7",
+    "moz-reloadcss-b2g": "0.0.3"
+  }
+}
