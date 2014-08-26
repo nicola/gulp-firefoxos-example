@@ -1,11 +1,11 @@
 var gulp = require('gulp');
-var deploy = require('moz-deploy-b2g');
-var reloadcss = require('moz-reloadcss-b2g');
+var deploy = require('fxos-deploy');
+var reloadcss = require('fxos-reloadcss');
 var zip = require('gulp-zip');
 
 var paths = {
-  build: ['**/*.html', '**/*.properties', '**/*.js', '!**/node_modules/**/*'],
-  css: ['**/*.css'],
+  build: ['./*.html', 'data/*.properties', 'js/*.js', '!**/node_modules/**/*'],
+  css: ['css/*.css'],
 };
 
 gulp.task('zip', function() {
@@ -15,7 +15,7 @@ gulp.task('zip', function() {
 });
 
 gulp.task('deploy', ['zip'], function(cb) {
-  deploy('./manifest.webapp', './build/app.zip', cb);
+  deploy('./manifest.webapp', './build/app.zip', cb).done();
 });
 
 gulp.task('reloadcss', function(cb) {
