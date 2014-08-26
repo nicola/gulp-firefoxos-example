@@ -11,7 +11,7 @@
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-zip": "^2.0.1",
-    "moz-deploy-b2g": "0.0.7",
-    "moz-reloadcss-b2g": "0.0.3"
+    "moz-deploy-b2g": "^0.1.0",
+    "moz-reloadcss-b2g": "^0.1.0"
   }
 }

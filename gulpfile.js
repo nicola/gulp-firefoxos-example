@@ -4,14 +4,9 @@ var reloadcss = require('moz-reloadcss-b2g');
 var zip = require('gulp-zip');
 
 var paths = {
-  build: ['**/*.html', '**/*.properties', , '**/*.js'],
-  css: '**/*.css',
+  build: ['**/*.html', '**/*.properties', '**/*.js', '!**/node_modules/**/*'],
+  css: ['**/*.css'],
 };
-
-gulp.task('watch', function() {
-  gulp.watch(paths.build, ['deploy']);
-  gulp.watch(paths.css, ['reloadcss']);
-});
 
 gulp.task('zip', function() {
   return gulp.src(['**/*', '!build/**/*', '!**/node_modules/**/*'])
@@ -27,4 +22,9 @@ gulp.task('reloadcss', function(cb) {
   reloadcss('./manifest.webapp', cb).done();
 });
 
-gulp.task('default', ['watch','deploy']);
+gulp.task('watch', function() {
+  gulp.watch(paths.build, ['deploy']);
+  gulp.watch(paths.css, ['reloadcss']);
+});
+
+gulp.task('default', ['watch', 'deploy']);
