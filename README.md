@@ -2,7 +2,7 @@
 
 Live-reload css and push the app on save to your FirefoxOS simulator with Gulp.
 
-This is the default app created by WebIDE with a gulpfile.js
+This is the default app created by WebIDE with the star of this repo: [gulpfile.js](https://github.com/nicola/gulp-firefoxos-example/blob/master/gulpfile.js)!
 
 ## Install
 
