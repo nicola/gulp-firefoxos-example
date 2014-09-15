@@ -8,22 +8,5 @@ window.addEventListener('DOMContentLoaded', function() {
   // https://developer.mozilla.org/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
   'use strict';
 
-  var translate = navigator.mozL10n.get;
-
-  // We want to wait until the localisations library has loaded all the strings.
-  // So we'll tell it to let us know once it's ready.
-  navigator.mozL10n.once(start);
-
-  // ---
-
-  function start() {
-
-    var message = document.getElementById('message');
-
-    // We're using textContent because inserting content from external sources into your page using innerHTML can be dangerous.
-    // https://developer.mozilla.org/Web/API/Element.innerHTML#Security_considerations
-    message.textContent = translate('message');
-
-  }
-
+  console.log('Starting app');
 });
