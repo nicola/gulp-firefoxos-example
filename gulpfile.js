@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var deploy = require('fxos-deploy');
 var reloadcss = require('fxos-reloadcss');
 var zip = require('gulp-zip');
-var simulator = require('fxos-connect')({connect:true});
+var simulator = require('fxos-connect')({connect:true, exit:true});
 
 var paths = {
   build: ['./*.html', 'data/*.properties', 'js/*.js', '!**/node_modules/**/*'],
