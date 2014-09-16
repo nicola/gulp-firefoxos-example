@@ -5,29 +5,29 @@ var zip = require('gulp-zip');
 var connect = require('fxos-connect');
 
 var paths = {
-  build: ['*.html', 'js/*.js'],
-  css: ['css/*.css'],
+  build: ['src/**/*', '!src/css/*.css'],
+  css: ['src/css/*.css'],
 };
 
 gulp.task('zip', function() {
-  return gulp.src(['**/*', '!build/**/*', '!**/node_modules/**/*'])
+  return gulp.src(['src/**/*'])
     .pipe(zip('./build/app.zip'))
     .pipe(gulp.dest('.'));
 });
 
 gulp.task('deploy', ['zip'], function(cb) {
   connect({exit:true, connect:true}).then(function(sim) {
-    return deploy({manifestURL:'./manifest.webapp', zip:'./build/app.zip', client:sim.client}).then(function() {
+    return deploy({manifestURL:'./src/manifest.webapp', zip:'./build/app.zip', client:sim.client}).then(function() {
       sim.client.disconnect();
-    })
+    });
   }).done(cb);
 });
 
 gulp.task('reloadcss', function(cb) {
   connect({exit:true, connect:true}).then(function(sim) {
-    return reloadcss({manifestURL:'./manifest.webapp', client:sim.client}).then(function() {
+    return reloadcss({manifestURL:'./src/manifest.webapp', client:sim.client}).then(function() {
       sim.client.disconnect();
-    })
+    });
   }).done(cb);
 });
 
