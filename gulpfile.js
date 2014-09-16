@@ -2,10 +2,10 @@ var gulp = require('gulp');
 var deploy = require('fxos-deploy');
 var reloadcss = require('fxos-reloadcss');
 var zip = require('gulp-zip');
-var simulator = require('fxos-connect')({connect:true, exit:true});
+var connect = require('fxos-connect');
 
 var paths = {
-  build: ['./*.html', 'data/*.properties', 'js/*.js', '!**/node_modules/**/*'],
+  build: ['*.html', 'js/*.js'],
   css: ['css/*.css'],
 };
 
@@ -16,11 +16,19 @@ gulp.task('zip', function() {
 });
 
 gulp.task('deploy', ['zip'], function(cb) {
-  deploy('./manifest.webapp', './build/app.zip', cb).done();
+  connect({exit:true, connect:true}).then(function(sim) {
+    return deploy({manifestURL:'./manifest.webapp', zip:'./build/app.zip', client:sim.client}).then(function() {
+      sim.client.disconnect();
+    })
+  }).done(cb);
 });
 
 gulp.task('reloadcss', function(cb) {
-  reloadcss('./manifest.webapp', cb).done();
+  connect({exit:true, connect:true}).then(function(sim) {
+    return reloadcss({manifestURL:'./manifest.webapp', client:sim.client}).then(function() {
+      sim.client.disconnect();
+    })
+  }).done(cb);
 });
 
 gulp.task('watch', function() {
@@ -28,4 +36,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.css, ['reloadcss']);
 });
 
-gulp.task('default', ['watch', 'deploy']);
+gulp.task('default', ['deploy', 'watch']);

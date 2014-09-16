@@ -9,9 +9,10 @@
   "author": "Nicola Greco <me@nicola.io> (http://nicolagreco.com/)",
   "license": "ISC",
   "devDependencies": {
+    "fxos-connect": "^0.2.1",
+    "fxos-deploy": "^0.2.2",
+    "fxos-reloadcss": "0.2.0",
     "gulp": "^3.8.7",
-    "gulp-zip": "^2.0.1",
-    "fxos-deploy": "0.2.0",
-    "fxos-reloadcss": "0.2.0"
+    "gulp-zip": "^2.0.1"
   }
 }
