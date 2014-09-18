@@ -1,6 +1,6 @@
 {
   "name": "FirefoxOS-Gulp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This is a privileged empty app template that provides you with a barebones structure for you to build your app.",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,9 @@
   "author": "Nicola Greco <me@nicola.io> (http://nicolagreco.com/)",
   "license": "ISC",
   "devDependencies": {
-    "fxos-connect": "^0.2.1",
-    "fxos-deploy": "^0.2.2",
-    "fxos-reloadcss": "0.2.0",
+    "fxos-connect": "^0.3.0",
+    "fxos-deploy": "^0.3.0",
+    "fxos-reloadcss": "0.3.0",
     "gulp": "^3.8.7",
     "gulp-zip": "^2.0.1"
   }
