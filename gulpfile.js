@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var deploy = require('fxos-deploy');
+var deploy = require('fxos-deploy/command');
 var reloadcss = require('fxos-reloadcss');
 var zip = require('gulp-zip');
 var connect = require('fxos-connect');
@@ -16,11 +16,11 @@ gulp.task('zip', function() {
 });
 
 gulp.task('deploy', ['zip'], function(cb) {
-  connect({exit:true, connect:true}).then(function(sim) {
-    return deploy({manifestURL:'./src/manifest.webapp', zip:'./build/app.zip', client:sim.client}).then(function() {
-      sim.client.disconnect();
-    });
-  }).done(cb);
+  deploy({
+    exit: true,
+    manifestURL:'./src/manifest.webapp',
+    zip:'./build/app.zip'
+  }, cb)
 });
 
 gulp.task('reloadcss', function(cb) {
