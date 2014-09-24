@@ -1,18 +1,18 @@
 {
-  "name": "FirefoxOS-Gulp",
-  "version": "0.2.0",
+  "name": "FirefoxOS-Grunt",
+  "version": "0.1.0",
   "description": "This is a privileged empty app template that provides you with a barebones structure for you to build your app.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Nicola Greco <me@nicola.io> (http://nicolagreco.com/)",
+  "author": "Daniele Scasciafratte <mte90net@gmail.com> (http://mte90.net/)",
   "license": "ISC",
   "devDependencies": {
     "fxos-connect": "^0.3.0",
     "fxos-deploy": "^0.3.0",
     "fxos-reloadcss": "0.3.0",
-    "gulp": "^3.8.7",
-    "gulp-zip": "^2.0.1"
+    "grunt": "^0.4.5",
+    "grunt-contrib-compress": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1"
   }
 }

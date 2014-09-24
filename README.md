@@ -1,8 +1,8 @@
-# FirefoxOS with Gulp
+# FirefoxOS with Grunt
 
-Live-reload css and push the app on save to your FirefoxOS simulator with Gulp.
+Live-reload css and push the app on save to your FirefoxOS simulator with Grunt.
 
-This is the default app created by WebIDE with the star of this repo: [gulpfile.js](https://github.com/nicola/gulp-firefoxos-example/blob/master/gulpfile.js)!
+This is the default app created by WebIDE with the star of this repo: [Gruntfile.js](https://github.com/Mte90/grunt-firefoxos-example/blob/master/Gruntfile.js)!
 
 ## Install
 
@@ -14,11 +14,11 @@ $ npm install .
 
 ```
 # Watch the current folder to reload CSS and push the app when editing HTML/JS
-$ gulp 
+$ grunt 
 
 # Deploy the app
-$ gulp deploy
+$ grunt deploy
 
 # Reload the css
-$ gulp reloadcss
+$ grunt reloadcss
 ```
