@@ -15,11 +15,30 @@ gulp.task('zip', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('deploy', ['zip'], function(cb) {
+gulp.task('deploy_2.2', ['zip'], function(cb) {
   deploy({
     exit: true,
     manifestURL:'./src/manifest.webapp',
-    zip:'./build/app.zip'
+    zip:'./build/app.zip',
+    release: ['2.2']
+  }, null, cb);
+});
+
+gulp.task('deploy_2.1', ['zip'], function(cb) {
+  deploy({
+    exit: true,
+    manifestURL:'./src/manifest.webapp',
+    zip:'./build/app.zip',
+    release: ['2.1']
+  }, null, cb);
+});
+
+gulp.task('deploy_2.0', ['zip'], function(cb) {
+  deploy({
+    exit: true,
+    manifestURL:'./src/manifest.webapp',
+    zip:'./build/app.zip',
+    release: ['2.0']
   }, null, cb);
 });
 
@@ -30,9 +49,17 @@ gulp.task('reloadcss', function(cb) {
   }, null, cb);
 });
 
+gulp.task('deploy', ['deploy_2.0']);
+
 gulp.task('watch', function() {
   gulp.watch(paths.build, ['deploy']);
   gulp.watch(paths.css, ['reloadcss']);
 });
 
+gulp.task('watch_all', function() {
+  gulp.watch(paths.build, ['deploy_all']);
+});
+
 gulp.task('default', ['deploy', 'watch']);
+gulp.task('deploy_all', ['deploy_2.0','deploy_2.1', 'deploy_2.2'])
+gulp.task('all', ['deploy_all', 'watch_all']);
